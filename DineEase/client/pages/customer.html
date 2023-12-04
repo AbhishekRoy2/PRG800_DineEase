@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DineEase-Kitchen</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .bodyMain {
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light border-bottom shadow-sm">
+      <div class="container">
+        <span class="navbar-brand mb-0 h1"> DineEase </span>
+        <button
+          class="btn btn-primary"
+          onclick="enterFullscreen()"
+          id="fullScreenBtn"
+        >
+          Full Screen
+        </button>
+        <a
+          class="btn btn-outline-danger"
+          type="button"
+          href="../home.html"
+          id="logoutBtn"
+        >
+          Close
+        </a>
+      </div>
+    </nav>
+
+    <main class="bodyMain"></main>
+    <div class="container-fluid mt-1">
+      <div class="row">
+        <!-- Left Column (30%) -->
+        <div
+          class="col-12 col-md-4 d-flex flex-column justify-content-between p-3"
+          style="height: 92vh; background-color: #f8f9fa"
+        >
+          <!-- Your content for the left column goes here -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="billBody">
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr> -->
+            </tbody>
+          </table>
+          <div>
+            <div class="d-flex justify-content-between">
+              <span>Subtotal</span><span id="subTotal">0.00</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Tax</span><span>10%</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span class="fs-3 fw-bolder">TOTAL</span
+              ><span class="fs-3 fw-bolder" id="total">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (70%) -->
+        <div
+          class="col-12 col-md-8 d-flex flex-column justify-content-between pb-2"
+          style="height: 92vh; background-color: #e9ecef"
+        >
+          <!-- Your content for the right column goes here -->
+          <div class="d-flex p-3 flex-wrap overflow-scroll" id="menu">
+            <!-- <div class="card m-2" style="width: 10rem">
+              <img
+                src="../images/img-1.jpeg"
+                class="card-img-top"
+                style="width: 100%"
+              />
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fs-bolder">Salad</span>
+                  <span class="fs-bolder">$0.9</span>
+                </div>
+                <div
+                  class="btn-group w-100"
+                  role="group"
+                  aria-label="Basic example"
+                >
+                  <button type="button" class="btn btn-primary">
+                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary">0</button>
+                  <button type="button" class="btn btn-primary">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card m-2" style="width: 10rem">
+              <img
+                src="../images/img-1.jpeg"
+                class="card-img-top"
+                style="width: 100%"
+              />
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fs-bolder">Salad</span>
+                  <span class="fs-bolder">$0.9</span>
+                </div>
+                <div
+                  class="btn-group w-100"
+                  role="group"
+                  aria-label="Basic example"
+                >
+                  <button type="button" class="btn btn-primary">
+                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary">0</button>
+                  <button type="button" class="btn btn-primary">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card m-2" style="width: 10rem">
+              <img
+                src="../images/img-1.jpeg"
+                class="card-img-top"
+                style="width: 100%"
+              />
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="fs-bolder">Salad</span>
+                  <span class="fs-bolder">$0.9</span>
+                </div>
+                <div
+                  class="btn-group w-100"
+                  role="group"
+                  aria-label="Basic example"
+                >
+                  <button type="button" class="btn btn-primary">
+                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary">0</button>
+                  <button type="button" class="btn btn-primary">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="d-flex justify-content-between w-100 bg-light p-2">
+            <button class="btn btn-primary" onclick="saveBill()">
+              Save / Print
+            </button>
+            <button class="btn btn-primary" onclick="generateBill()">
+              Generate Bill
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/customer.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
